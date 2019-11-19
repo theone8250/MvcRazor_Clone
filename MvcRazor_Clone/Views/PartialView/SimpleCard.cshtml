@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "SimpleCard";
+}
+
+<div class="jumbotron">
+    <h2>人物牌卡(簡單型)</h2>
+</div>
+
+<div class="row">
+    <!--以下連續呼叫Partial View九次-->
+    @*@Html.Partial("_SimpleCardPartial")
+        @Html.Partial("_SimpleCardPartial")
+        @Html.Partial("_SimpleCardPartial")
+        @Html.Partial("_SimpleCardPartial")
+        @Html.Partial("_SimpleCardPartial")
+        @Html.Partial("_SimpleCardPartial")
+        @Html.Partial("_SimpleCardPartial")
+        @Html.Partial("_SimpleCardPartial")
+        @Html.Partial("_SimpleCardPartial")*@
+
+    <!--等同以下用迴圈執行九次-->
+    @for (int i = 0; i < 9; i++)
+    {
+        @Html.Partial("_SimpleCardPartial");
+
+    }
+    @*@{ Html.RenderPartial("_SimpleCardPartial"); }*@
+</div>
+
+<!--以下是牌卡的樣式定義-->
+@section topCSS{
+
+    <link href="~/Assets/css/card.css" rel="stylesheet" />
+}

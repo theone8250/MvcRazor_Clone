@@ -51,5 +51,53 @@ namespace MvcRazor_Clone.Controllers
         {
             return View(students);
         }
+        public ActionResult ScoresRazorHelper()
+        {
+            //找出總分最高者之Id
+            int topId = 0;
+            int topScore = 0;
+
+            foreach (var student in students)
+            {
+                //計算總分
+                student.Total = student.Chinese + student.English + student.Math;
+
+                //判斷總分最高者
+                if (student.Total > topScore)
+                {
+                    topScore = student.Total;
+                    topId = student.Id;
+                }
+            }
+
+            //將最高分學生Id儲存到ViewBag，傳遞給View
+            ViewBag.TopId = topId;
+
+            return View(students);
+        }
+        public ActionResult GlobalHtmlHelper()
+        {
+            //找出總分最高者之Id
+            int topId = 0;
+            int topScore = 0;
+
+            foreach (var student in students)
+            {
+                //計算總分
+                student.Total = student.Chinese + student.English + student.Math;
+
+                //判斷總分最高者
+                if (student.Total > topScore)
+                {
+                    topScore = student.Total;
+                    topId = student.Id;
+                }
+            }
+
+            //將最高分學生Id儲存到ViewBag，傳遞給View
+            ViewBag.TopId = topId;
+
+            return View(students);
+        }
     }
 }
